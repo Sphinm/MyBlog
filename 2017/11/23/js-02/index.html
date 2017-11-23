@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="前端小卖部">
 <meta property="og:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-23T13:02:12.184Z">
+<meta property="og:updated_time" content="2017-11-23T13:10:03.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="for...in 和 for...of 的区别和联系">
 <meta name="twitter:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
@@ -239,6 +239,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -377,8 +387,7 @@
         <h3 id="for-in语句"><a href="#for-in语句" class="headerlink" title="for...in语句"></a><strong><code>for...in</code>语句</strong></h3><p>以任意顺序遍历一个对象的<a href="http://www.jianshu.com/p/83ae9c810735" target="_blank" rel="noopener">可枚举属性</a>。对于每个不同的属性，语句都会被执行。</p>
 <p>描述<br>for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提示：for...in不应该用于迭代一个 Array，其中索引顺序很重要。</span><br></pre></td></tr></table></figure>
-<p>数组索引只是具有整数名称的枚举属性，并且与通用对象属性相同。不能保证for … in将以任何特定的顺序返回索引。for … in循环语句将返回所有可枚举属性，包括非整数类型的名称和继承的那些。</p>
-<p>因为迭代的顺序是依赖于执行环境的，所以数组遍历不一定按次序访问元素。<code>因此当迭代访问顺序很重要的数组时，最好用整数索引去进行for循环（或者使用 Array.prototype.forEach() 或 for...of 循环）</code>。<br><a id="more"></a></p>
+<p>数组索引只是具有整数名称的枚举属性，并且与通用对象属性相同。不能保证for … in将以任何特定的顺序返回索引。for … in循环语句将返回所有可枚举属性，包括非整数类型的名称和继承的那些。<br><a id="more"></a><br>因为迭代的顺序是依赖于执行环境的，所以数组遍历不一定按次序访问元素。<code>因此当迭代访问顺序很重要的数组时，最好用整数索引去进行for循环（或者使用 Array.prototype.forEach() 或 for...of 循环）</code>。</p>
 <p>下面的函数接受一个对象作为参数。被调用时迭代传入对象的所有可枚举属性然后返回一个所有属性名和其对应值的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a:1, b:2, c:3&#125;;</span><br><span class="line">    </span><br><span class="line">for (var prop in obj) &#123;</span><br><span class="line">  console.log(&quot;obj.&quot; + prop + &quot; = &quot; + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// &quot;obj.a = 1&quot;</span><br><span class="line">// &quot;obj.b = 2&quot;</span><br><span class="line">// &quot;obj.c = 3&quot;</span><br></pre></td></tr></table></figure></p>
 <p>下面的函数说明了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" title="hasOwnProperty() 方法会返回一个布尔值，指示对象是否具有指定的属性作为自身（不继承）属性。" target="_blank" rel="noopener"><code>hasOwnProperty()</code></a>的用法：继承的属性不显示。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var triangle = &#123;a: 1, b: 2, c: 3&#125;;</span><br><span class="line"></span><br><span class="line">function ColoredTriangle() &#123;</span><br><span class="line">  this.color = &apos;red&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ColoredTriangle.prototype = triangle;</span><br><span class="line"></span><br><span class="line">var obj = new ColoredTriangle();</span><br><span class="line"></span><br><span class="line">for (var prop in obj) &#123;</span><br><span class="line">  if (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">    console.log(`obj.$&#123;prop&#125; = $&#123;obj[prop]&#125;`);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">// &quot;obj.color = red&quot;</span><br></pre></td></tr></table></figure>
