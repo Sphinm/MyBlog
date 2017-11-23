@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="前端小卖部" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for...in 和 for...of 的区别和联系">
+<meta property="og:url" content="http://suminhohu.github.io/2017/11/23/js-02/index.html">
+<meta property="og:site_name" content="前端小卖部">
+<meta property="og:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-23T13:02:12.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="for...in 和 for...of 的区别和联系">
+<meta name="twitter:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://suminhohu.github.io/2017/11/23/js-02/"/>
+
+
+
+
+
+  <title>for...in 和 for...of 的区别和联系 | 前端小卖部</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端小卖部</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://suminhohu.github.io/2017/11/23/js-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sumin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.ico">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端小卖部">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">for...in 和 for...of 的区别和联系</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T21:00:56+08:00">
+                2017-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/23/js-02/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/23/js-02/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="for-in语句"><a href="#for-in语句" class="headerlink" title="for...in语句"></a><strong><code>for...in</code>语句</strong></h3><p>以任意顺序遍历一个对象的<a href="http://www.jianshu.com/p/83ae9c810735" target="_blank" rel="noopener">可枚举属性</a>。对于每个不同的属性，语句都会被执行。</p>
+<p>描述<br>for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提示：for...in不应该用于迭代一个 Array，其中索引顺序很重要。</span><br></pre></td></tr></table></figure>
+<p>数组索引只是具有整数名称的枚举属性，并且与通用对象属性相同。不能保证for … in将以任何特定的顺序返回索引。for … in循环语句将返回所有可枚举属性，包括非整数类型的名称和继承的那些。</p>
+<p>因为迭代的顺序是依赖于执行环境的，所以数组遍历不一定按次序访问元素。<code>因此当迭代访问顺序很重要的数组时，最好用整数索引去进行for循环（或者使用 Array.prototype.forEach() 或 for...of 循环）</code>。<br><a id="more"></a></p>
+<p>下面的函数接受一个对象作为参数。被调用时迭代传入对象的所有可枚举属性然后返回一个所有属性名和其对应值的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;a:1, b:2, c:3&#125;;</span><br><span class="line">    </span><br><span class="line">for (var prop in obj) &#123;</span><br><span class="line">  console.log(&quot;obj.&quot; + prop + &quot; = &quot; + obj[prop]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// &quot;obj.a = 1&quot;</span><br><span class="line">// &quot;obj.b = 2&quot;</span><br><span class="line">// &quot;obj.c = 3&quot;</span><br></pre></td></tr></table></figure></p>
+<p>下面的函数说明了<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty" title="hasOwnProperty() 方法会返回一个布尔值，指示对象是否具有指定的属性作为自身（不继承）属性。" target="_blank" rel="noopener"><code>hasOwnProperty()</code></a>的用法：继承的属性不显示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var triangle = &#123;a: 1, b: 2, c: 3&#125;;</span><br><span class="line"></span><br><span class="line">function ColoredTriangle() &#123;</span><br><span class="line">  this.color = &apos;red&apos;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ColoredTriangle.prototype = triangle;</span><br><span class="line"></span><br><span class="line">var obj = new ColoredTriangle();</span><br><span class="line"></span><br><span class="line">for (var prop in obj) &#123;</span><br><span class="line">  if (obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">    console.log(`obj.$&#123;prop&#125; = $&#123;obj[prop]&#125;`);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">// &quot;obj.color = red&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="for-of语句"><a href="#for-of语句" class="headerlink" title="for...of语句"></a><strong><code>for...of</code>语句</strong></h3><p>for…of语句在可迭代对象（包括Array，Map，Set，String，TypedArray，arguments对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句。</p>
+<p>###迭代Array<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let iterable = [10, 20, 30];</span><br><span class="line"></span><br><span class="line">for (let value of iterable) &#123;</span><br><span class="line">    value += 1;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">// 11</span><br><span class="line">// 21</span><br><span class="line">// 31</span><br></pre></td></tr></table></figure></p>
+<p>如果不想修改语句块中的变量,也可以使用const代替let。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let iterable = [10, 20, 30];</span><br><span class="line"></span><br><span class="line">for (const value of iterable) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">// 10</span><br><span class="line">// 20</span><br><span class="line">// 30</span><br></pre></td></tr></table></figure>
+<h3 id="迭代String"><a href="#迭代String" class="headerlink" title="迭代String"></a>迭代String</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let iterable = &quot;boo&quot;;</span><br><span class="line"></span><br><span class="line">for (let value of iterable) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">// &quot;b&quot;</span><br><span class="line">// &quot;o&quot;</span><br><span class="line">// &quot;o&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="迭代Map"><a href="#迭代Map" class="headerlink" title="迭代Map"></a>迭代Map</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let iterable = new Map([[&quot;a&quot;, 1], [&quot;b&quot;, 2], [&quot;c&quot;, 3]]);</span><br><span class="line"></span><br><span class="line">for (let entry of iterable) &#123;</span><br><span class="line">  console.log(entry);</span><br><span class="line">&#125;</span><br><span class="line">// [&quot;a&quot;, 1]</span><br><span class="line">// [&quot;b&quot;, 2]</span><br><span class="line">// [&quot;c&quot;, 3]</span><br><span class="line"></span><br><span class="line">for (let [key, value] of iterable) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br><span class="line">// 3</span><br></pre></td></tr></table></figure>
+<h3 id="迭代Set"><a href="#迭代Set" class="headerlink" title="迭代Set"></a>迭代Set</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let iterable = new Set([1, 1, 2, 2, 3, 3]);</span><br><span class="line"></span><br><span class="line">for (let value of iterable) &#123;</span><br><span class="line">  console.log(value);</span><br><span class="line">&#125;</span><br><span class="line">// 1</span><br><span class="line">// 2</span><br><span class="line">// 3</span><br></pre></td></tr></table></figure>
+<h3 id="迭代-DOM-集合"><a href="#迭代-DOM-集合" class="headerlink" title="迭代 DOM 集合"></a>迭代 DOM 集合</h3><p>迭代DOM元素集合，比如一个NodeList对象：下面的例子演示给每一个article标签内的p标签添加一个”read”类。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let articleParagraphs = document.querySelectorAll(&quot;article &gt; p&quot;);</span><br><span class="line"></span><br><span class="line">for (let paragraph of articleParagraphs) &#123;</span><br><span class="line">  paragraph.classList.add(&quot;read&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="for…in与for…of的区别"><a href="#for…in与for…of的区别" class="headerlink" title="for…in与for…of的区别"></a>for…in与for…of的区别</h3><p>无论是for…in还是for…of语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。</p>
+<h4 id="for…-in-语句以原始插入顺序迭代对象的可枚举属性。"><a href="#for…-in-语句以原始插入顺序迭代对象的可枚举属性。" class="headerlink" title="for… in 语句以原始插入顺序迭代对象的可枚举属性。"></a>for… in 语句以原始插入顺序迭代对象的可枚举属性。</h4><h4 id="for…of-语句遍历可迭代对象定义要迭代的数据"><a href="#for…of-语句遍历可迭代对象定义要迭代的数据" class="headerlink" title="for…of  语句遍历可迭代对象定义要迭代的数据"></a>for…of  语句遍历可迭代对象定义要迭代的数据</h4><p>以下示例显示了与Array一起使用时，for…of循环和for…in循环之间的区别。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.objCustom = function() &#123;&#125;; </span><br><span class="line">Array.prototype.arrCustom = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">let iterable = [3, 5, 7];</span><br><span class="line">iterable.foo = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">//此循环仅以原始插入顺序记录iterable 对象的可枚举属性。它不记录数组元素3, 5, 7 或hello，</span><br><span class="line">//因为这些不是枚举属性。但是它记录了数组索引以及arrCustom和objCustom</span><br><span class="line">for (let i in iterable) &#123;</span><br><span class="line">  console.log(i); //  0, 1, 2, &quot;foo&quot;, &quot;arrCustom&quot;, &quot;objCustom&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//这个循环类似于第一个，但是它使用hasOwnProperty() 来检查，如果找到的枚举属性是对象自己的（不是继承的）。</span><br><span class="line">//如果是，该属性被记录。记录的属性是0, 1, 2和foo，因为它们是自身的属性（不是继承的）。</span><br><span class="line">//属性arrCustom和objCustom不会被记录，因为它们是继承的。</span><br><span class="line">for (let i in iterable) &#123;</span><br><span class="line">  if (iterable.hasOwnProperty(i)) &#123;</span><br><span class="line">    console.log(i); //  0, 1, 2, &quot;foo&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//该循环迭代并记录iterable作为可迭代对象定义的迭代值，这些是数组元素 3, 5, 7，而不是任何对象的属性。</span><br><span class="line">for (let i of iterable) &#123;</span><br><span class="line">  console.log(i); // 3, 5, 7</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+<p>每个对象将继承objCustom属性，并且作为Array的每个对象将继承arrCustom属性，因为将这些属性添加到Object.prototype和Array.prototype。由于继承和原型链，对象iterable继承属性objCustom和arrCustom。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/23/js-01/" rel="next" title="12种应该避免使用的Javascript语法——《Javascript语言精粹》">
+                <i class="fa fa-chevron-left"></i> 12种应该避免使用的Javascript语法——《Javascript语言精粹》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/23/js-02/"
+           data-title="for...in 和 for...of 的区别和联系" data-url="http://suminhohu.github.io/2017/11/23/js-02/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar.ico"
+               alt="Sumin" />
+          <p class="site-author-name" itemprop="name">Sumin</p>
+           
+              <p class="site-description motion-element" itemprop="description">Hexo笔记本</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/suminhohu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in语句"><span class="nav-number">1.</span> <span class="nav-text">for...in语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-of语句"><span class="nav-number">2.</span> <span class="nav-text">for...of语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代String"><span class="nav-number">3.</span> <span class="nav-text">迭代String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代Map"><span class="nav-number">4.</span> <span class="nav-text">迭代Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代Set"><span class="nav-number">5.</span> <span class="nav-text">迭代Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代-DOM-集合"><span class="nav-number">6.</span> <span class="nav-text">迭代 DOM 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for…in与for…of的区别"><span class="nav-number">7.</span> <span class="nav-text">for…in与for…of的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for…-in-语句以原始插入顺序迭代对象的可枚举属性。"><span class="nav-number">7.1.</span> <span class="nav-text">for… in 语句以原始插入顺序迭代对象的可枚举属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for…of-语句遍历可迭代对象定义要迭代的数据"><span class="nav-number">7.2.</span> <span class="nav-text">for…of  语句遍历可迭代对象定义要迭代的数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sumin</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"your-duoshuo-shortname"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
