@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript," />
 
 
 
@@ -96,16 +96,18 @@
 
 
 
-<meta name="description" content="Hexo笔记本">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端小卖部">
-<meta property="og:url" content="http://suminhohu.github.io/index.html">
+<meta name="description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="for-in和for-of 的区别">
+<meta property="og:url" content="http://suminhohu.github.io/2017/11/23/for-in-for-of/index.html">
 <meta property="og:site_name" content="前端小卖部">
-<meta property="og:description" content="Hexo笔记本">
+<meta property="og:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-23T12:52:25.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端小卖部">
-<meta name="twitter:description" content="Hexo笔记本">
+<meta name="twitter:title" content="for-in和for-of 的区别">
+<meta name="twitter:description" content="for...in语句以任意顺序遍历一个对象的可枚举属性。对于每个不同的属性，语句都会被执行。 描述for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，">
 
 
 
@@ -134,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://suminhohu.github.io/"/>
+  <link rel="canonical" href="http://suminhohu.github.io/2017/11/23/for-in-for-of/"/>
 
 
 
 
 
-  <title>前端小卖部</title>
+  <title>for-in和for-of 的区别 | 前端小卖部</title>
   
 
 
@@ -165,9 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -260,9 +260,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -292,9 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/23/for-in-for-of/" itemprop="url">for-in和for-of 的区别</a></h1>
+          <h1 class="post-title" itemprop="name headline">for-in和for-of 的区别</h1>
         
 
         <div class="post-meta">
@@ -376,9 +374,7 @@
       
 
       
-        
-          
-            <h3 id="for-in语句"><a href="#for-in语句" class="headerlink" title="for...in语句"></a><strong><code>for...in</code>语句</strong></h3><p>以任意顺序遍历一个对象的<a href="http://www.jianshu.com/p/83ae9c810735" target="_blank" rel="noopener">可枚举属性</a>。对于每个不同的属性，语句都会被执行。</p>
+        <h3 id="for-in语句"><a href="#for-in语句" class="headerlink" title="for...in语句"></a><strong><code>for...in</code>语句</strong></h3><p>以任意顺序遍历一个对象的<a href="http://www.jianshu.com/p/83ae9c810735" target="_blank" rel="noopener">可枚举属性</a>。对于每个不同的属性，语句都会被执行。</p>
 <p>描述<br>for… in 循环只遍历可枚举属性。像Array和Object使用内置构造函数所创建的对象都会继承自Object.prototype和String.prototype的不可枚举属性，例如String的indexOf()方法或Object的toString()方法。循环将遍历对象本身的所有可枚举属性，以及对象从其构造函数原型中继承的属性。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">提示：for...in不应该用于迭代一个 Array，其中索引顺序很重要。</span><br></pre></td></tr></table></figure>
 <p>数组索引只是具有整数名称的枚举属性，并且与通用对象属性相同。不能保证for … in将以任何特定的顺序返回索引。for … in循环语句将返回所有可枚举属性，包括非整数类型的名称和继承的那些。</p>
@@ -399,8 +395,6 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.objCustom = function() &#123;&#125;; </span><br><span class="line">Array.prototype.arrCustom = function() &#123;&#125;;</span><br><span class="line"></span><br><span class="line">let iterable = [3, 5, 7];</span><br><span class="line">iterable.foo = &apos;hello&apos;;</span><br><span class="line"></span><br><span class="line">//此循环仅以原始插入顺序记录iterable 对象的可枚举属性。它不记录数组元素3, 5, 7 或hello，</span><br><span class="line">//因为这些不是枚举属性。但是它记录了数组索引以及arrCustom和objCustom</span><br><span class="line">for (let i in iterable) &#123;</span><br><span class="line">  console.log(i); //  0, 1, 2, &quot;foo&quot;, &quot;arrCustom&quot;, &quot;objCustom&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//这个循环类似于第一个，但是它使用hasOwnProperty() 来检查，如果找到的枚举属性是对象自己的（不是继承的）。</span><br><span class="line">//如果是，该属性被记录。记录的属性是0, 1, 2和foo，因为它们是自身的属性（不是继承的）。</span><br><span class="line">//属性arrCustom和objCustom不会被记录，因为它们是继承的。</span><br><span class="line">for (let i in iterable) &#123;</span><br><span class="line">  if (iterable.hasOwnProperty(i)) &#123;</span><br><span class="line">    console.log(i); //  0, 1, 2, &quot;foo&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//该循环迭代并记录iterable作为可迭代对象定义的迭代值，这些是数组元素 3, 5, 7，而不是任何对象的属性。</span><br><span class="line">for (let i of iterable) &#123;</span><br><span class="line">  console.log(i); // 3, 5, 7</span><br><span class="line">&#125;</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
 <p>每个对象将继承objCustom属性，并且作为Array的每个对象将继承arrCustom属性，因为将这些属性添加到Object.prototype和Array.prototype。由于继承和原型链，对象iterable继承属性objCustom和arrCustom。</p>
 
-          
-        
       
     </div>
     
@@ -415,14 +409,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -432,10 +432,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -443,6 +444,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/11/23/for-in-for-of/"
+           data-title="for-in和for-of 的区别" data-url="http://suminhohu.github.io/2017/11/23/for-in-for-of/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -463,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar.ico"
@@ -546,6 +564,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#for-in语句"><span class="nav-number">1.</span> <span class="nav-text">for...in语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-of语句"><span class="nav-number">2.</span> <span class="nav-text">for...of语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代String"><span class="nav-number">3.</span> <span class="nav-text">迭代String</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代Map"><span class="nav-number">4.</span> <span class="nav-text">迭代Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代Set"><span class="nav-number">5.</span> <span class="nav-text">迭代Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代-DOM-集合"><span class="nav-number">6.</span> <span class="nav-text">迭代 DOM 集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for…in与for…of的区别"><span class="nav-number">7.</span> <span class="nav-text">for…in与for…of的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for…-in-语句以原始插入顺序迭代对象的可枚举属性。"><span class="nav-number">7.1.</span> <span class="nav-text">for… in 语句以原始插入顺序迭代对象的可枚举属性。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for…of-语句遍历可迭代对象定义要迭代的数据"><span class="nav-number">7.2.</span> <span class="nav-text">for…of  语句遍历可迭代对象定义要迭代的数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -659,10 +693,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
