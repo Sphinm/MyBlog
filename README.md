@@ -23,6 +23,8 @@
 
 > [还是一道this指向的问题...](https://github.com/suminhohu/suminhohu.github.io/issues/12)
 
+> [JavaScript中call，apply和bind方法模拟实现](https://github.com/suminhohu/suminhohu.github.io/issues/15)
+
 
 
 ## CSS
