@@ -25,6 +25,8 @@
 
 > [JavaScript中call，apply和bind方法模拟实现](https://github.com/suminhohu/suminhohu.github.io/issues/15)
 
+> [Object.create()和new方法的区别](https://github.com/suminhohu/suminhohu.github.io/issues/16)
+
 
 
 ## CSS
