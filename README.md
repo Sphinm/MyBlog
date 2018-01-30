@@ -27,4 +27,4 @@
 
 ## 杂记
 
-3. [http状态码有那些(转)](https://github.com/suminhohu/suminhohu.github.io/issues/14)
+1. [http状态码有那些(转)](https://github.com/suminhohu/suminhohu.github.io/issues/14)
