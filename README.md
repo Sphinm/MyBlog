@@ -15,6 +15,7 @@
 10. [还是一道this指向的问题...](https://github.com/suminhohu/suminhohu.github.io/issues/12)
 11. [JavaScript中call，apply和bind方法模拟实现](https://github.com/suminhohu/suminhohu.github.io/issues/15)
 12. [Object.create()和new方法的区别](https://github.com/suminhohu/suminhohu.github.io/issues/16)
+13. [JavaScript中原型到底是什么](https://github.com/suminhohu/suminhohu.github.io/issues/17)
 
 
 
