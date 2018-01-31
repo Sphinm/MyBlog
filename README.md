@@ -24,6 +24,7 @@
 1. [利用盒模型实现三角形](https://github.com/suminhohu/suminhohu.github.io/issues/9)
 2. [CSS 复习总结---持续中](https://github.com/suminhohu/suminhohu.github.io/issues/10)
 3. [如何居中一个div呢？](https://github.com/suminhohu/suminhohu.github.io/issues/13)
+4. [CSS中遇到过的定宽自适应布局的异同](https://github.com/suminhohu/suminhohu.github.io/issues/18) 
 
 
 ## 杂记
