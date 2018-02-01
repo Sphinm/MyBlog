@@ -16,7 +16,7 @@
 11. [JavaScript中call，apply和bind方法模拟实现](https://github.com/suminhohu/suminhohu.github.io/issues/15)
 12. [Object.create()和new方法的区别](https://github.com/suminhohu/suminhohu.github.io/issues/16)
 13. [JavaScript中原型到底是什么](https://github.com/suminhohu/suminhohu.github.io/issues/17)
-
+14. [JavaScript模拟分析执行上下文](https://github.com/suminhohu/suminhohu.github.io/issues/19)
 
 
 ## CSS
