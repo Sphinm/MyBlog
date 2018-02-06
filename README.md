@@ -17,6 +17,7 @@
 12. [Object.create()和new方法的区别](https://github.com/suminhohu/suminhohu.github.io/issues/16)
 13. [JavaScript中原型到底是什么](https://github.com/suminhohu/suminhohu.github.io/issues/17)
 14. [JavaScript模拟分析执行上下文](https://github.com/suminhohu/suminhohu.github.io/issues/19)
+15. [面试题---针对数组对象的排序](https://github.com/suminhohu/suminhohu.github.io/issues/20)
 
 
 ## CSS
