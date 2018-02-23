@@ -18,6 +18,8 @@
 13. [JavaScript中原型到底是什么](https://github.com/suminhohu/suminhohu.github.io/issues/17)
 14. [JavaScript模拟分析执行上下文](https://github.com/suminhohu/suminhohu.github.io/issues/19)
 15. [JavaScript面试题补充](https://github.com/suminhohu/suminhohu.github.io/issues/20)
+16. [JavaScript实现图片延迟加载](https://github.com/suminhohu/suminhohu.github.io/issues/21)
+
 
 
 ## CSS
