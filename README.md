@@ -1,5 +1,5 @@
 # [前端小卖部](http://suminhohu.github.io)
-个人博客
+> 个人博客主要在 Issues 中写，暂时不迁移到博客中
 
 ## JavaScript
 
