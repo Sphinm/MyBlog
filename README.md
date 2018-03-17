@@ -19,7 +19,7 @@
 14. [JavaScript模拟分析执行上下文](https://github.com/suminhohu/suminhohu.github.io/issues/19)
 15. [JavaScript面试题补充](https://github.com/suminhohu/suminhohu.github.io/issues/20)
 16. [JavaScript实现图片延迟加载](https://github.com/suminhohu/suminhohu.github.io/issues/21)
-17. [Javascript 数组常用操作草稿纸](https://github.com/suminhohu/suminhohu.github.io/issues/22)
+17. [数组常用操作草稿纸](https://github.com/suminhohu/suminhohu.github.io/issues/22)
 
 
 ## CSS
