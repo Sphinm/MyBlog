@@ -33,3 +33,4 @@
 ## 杂记
 
 1. [http状态码有那些(转)](https://github.com/suminhohu/suminhohu.github.io/issues/14)
+2. [编程风格及合理的类型判断](https://github.com/suminhohu/suminhohu.github.io/issues/23)
