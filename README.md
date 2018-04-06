@@ -20,6 +20,7 @@
 15. [JavaScript面试题补充](https://github.com/suminhohu/suminhohu.github.io/issues/20)
 16. [JavaScript实现图片延迟加载](https://github.com/suminhohu/suminhohu.github.io/issues/21)
 17. [数组常用操作草稿纸](https://github.com/suminhohu/suminhohu.github.io/issues/22)
+18. [简单总结一下 Javascript 中的变量类型判断](https://github.com/suminhohu/suminhohu.github.io/issues/24)
 
 
 ## CSS
