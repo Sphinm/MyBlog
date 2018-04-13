@@ -21,7 +21,6 @@
 16. [JavaScript实现图片延迟加载](https://github.com/suminhohu/suminhohu.github.io/issues/21)
 17. [数组常用操作草稿纸](https://github.com/suminhohu/suminhohu.github.io/issues/22)
 18. [简单总结一下 Javascript 中的变量类型判断](https://github.com/suminhohu/suminhohu.github.io/issues/24)
-19. [日常 Git 命令使用小结 不定期更新~](https://github.com/suminhohu/suminhohu.github.io/issues/25)
 
 
 ## CSS
@@ -36,3 +35,5 @@
 
 1. [http状态码有那些(转)](https://github.com/suminhohu/suminhohu.github.io/issues/14)
 2. [编程风格及合理的类型判断](https://github.com/suminhohu/suminhohu.github.io/issues/23)
+3. [日常 Git 命令使用小结 不定期更新~](https://github.com/suminhohu/suminhohu.github.io/issues/25)
+
