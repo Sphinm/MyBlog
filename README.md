@@ -36,4 +36,5 @@
 1. [http状态码有那些(转)](https://github.com/suminhohu/blog_issues/issues/14)
 2. [编程风格及合理的类型判断](https://github.com/suminhohu/blog_issues/issues/23)
 3. [日常 Git 命令使用小结 不定期更新~](https://github.com/suminhohu/blog_issues/issues/25)
+4. [微信小程序如何接入广告](https://github.com/suminhohu/blog_issues/issues/27)
 
