@@ -1,4 +1,4 @@
-![可爱的土拨鼠.png](https://upload-images.jianshu.io/upload_images/1394028-95d6eaf99111984f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![可爱的土拨鼠.png](https://upload-images.jianshu.io/upload_images/1394028-95d6eaf99111984f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640)
 
 ## 前言
 在我们接触一门新的语言的时候，并不着急马上去学习它的语法，应该从一个全局的视角来看看我们接下来要学的语言时一个什么样的语言，值不值得我们去学，它和我们现有的技术栈有什么区别，是否能够解决技术痛点，以上这几点是我觉得学习之前先要了解的。
