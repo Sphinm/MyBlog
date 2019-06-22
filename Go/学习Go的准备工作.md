@@ -52,7 +52,7 @@ go version go1.11.1 darwin/amd64
 #### 1.2 Go 命令
 首先我们看一下 Go 有哪些命令
 
-<div align=center>![Go 命令.png](https://upload-images.jianshu.io/upload_images/1394028-bf10b393bfd80ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640)
+<div align=center>![Go 命令.png](https://upload-images.jianshu.io/upload_images/1394028-bf10b393bfd80ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640)</div>
 
 简单的过一下，我们常用的一般也就几条，如
 ```go
