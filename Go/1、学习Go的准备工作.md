@@ -32,7 +32,13 @@ Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/d
 ```go
 brew install go
 ```
-Mac 会默认给你配置好 GOPATH，如果不喜欢可以自己修改，我的目录是 `` /Users/sumin/workspace/dev/golang ``, 然后终端输入 
+Mac 会默认给你配置好 GOPATH，如果不喜欢可以自己修改，我的目录是 `` /Users/sumin/workspace/dev/golang ``，接下来我们配置环境变量，在终端输入 `` vim .bash_profile ``，然后将一下添加进去后保存退出，并执行 `` source .bash_profile ``
+```go
+export GOPATH="/Users/sumin/workspace/dev/golang"
+export GOBIN="${GOPATH}/bin"
+export PATH="${PATH}:${GOPATH}:${GOPATH}/bin"
+```
+ 然后终端输入 
 ```go
 go version
 ```
