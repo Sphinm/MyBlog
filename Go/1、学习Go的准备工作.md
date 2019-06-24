@@ -114,7 +114,7 @@ go install   生成可执行文件
 
 详细命令可参考官方文档 [Here](https://go-zh.org/cmd/go/)
 
-#### 1.3 Go Package
+### 2、Go Package
 当我们只有一个项目的时候我们可以直接把文件写在 src 目录下，如果我们有多个项目同时存在，我们就要通过包组织我们的代码了，官网是推荐使用你个人的 github.com，这样就不会有重复了。
 
 这里再看下上面的 Hello World 程序
@@ -125,7 +125,7 @@ go install   生成可执行文件
 +  main 函数是主函数，表示程序执行的入口，Java 也有同名函数，但是多了一个 String[] 类型的参数。
 + Println 是 fmt 包里的函数，和 Java 里的 system.out.println 作用类似，这里注意 Println 是大写的，至于为啥呢，我们接下来再说。
 
-#### 1.4 编辑器
+### 3、 编辑器
 工欲善其事必先利其器，我们使用一个顺手的编辑器开发也会省心不少。不过 Go 不怎么挑剔编辑器，它本身采用的是 UTF-8 的文本文件存放源代码，所以原则上你可以使用任何文本编辑器。
 
 对于我这种新手来说 Jetbrains idea + Go 插件最省心，当然也有专门支持 Go 语言的 GoLand [下载地址]([https://www.jetbrains.com/go/](https://www.jetbrains.com/go/)
