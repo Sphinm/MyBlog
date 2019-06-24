@@ -54,6 +54,7 @@ go version go1.11.1 darwin/amd64
 > Windows 安装 Go
 
 首先还是从官网下载相应系统的包，解压到自己选的目录下，我的是 `` F:\Go\ ``， 然后开始配置环境变量，如图所示
+
 ![image.png](https://upload-images.jianshu.io/upload_images/1394028-27ef30a046fd2c71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 在系统变量中新建 GOROOT，变量值是我们刚刚安装的路径；
