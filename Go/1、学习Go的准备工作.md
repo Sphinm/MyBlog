@@ -136,7 +136,7 @@ net
 
 > 首先我们在前面的 Hello World 中声明了一个 main 包，这就和 Java 的 main 函数一个意思，告诉程序我是入口函数，这里 Go 会把声明了 main 的包编译为一个可执行程序，并且同一个项目里只有一个入口文件。
 
-Go 语言中的包名一般遵循小写、和所在目录同名的原则。当我们只有一个项目的时候我们可以直接把文件写在 src 目录下，如果我们有多个项目同时存在，我们就要通过包组织我们的代码了，官网是推荐使用你个人的 github.com，这一点同 Java 中类似。
+Go 语言中的包名一般遵循小写、和所在目录同名且不应使用下划线或驼峰记法的原则。当我们只有一个项目的时候我们可以直接把文件写在 src 目录下，如果我们有多个项目同时存在，我们就要通过包组织我们的代码了，官网是推荐使用你个人的 github.com，这一点同 Java 中类似。
 
 这里再看下上面的 Hello World 程序
 + 首先我们引入了 ``package main``，这里 package 是一个关键字，定义一个包，和 Java 里的 package 一样，也是模块化的关键。
@@ -172,12 +172,12 @@ package main
 
 import (
     "fmt"
-    su_fmt "github.com/sumin/fmt"
+    sufmt "github.com/sumin/fmt"
 )
 
 func main() {
     fmt.Println()
-    su_fmt.Println()
+    sufmt.Println()
 }
 ```
 
