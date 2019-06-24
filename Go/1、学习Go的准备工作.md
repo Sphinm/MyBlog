@@ -28,7 +28,9 @@ go run main.go
 #### 1.1 Go 语言安装
 我们根据自己的机器操作系统选择相应的开发工具包，比如你的是Windows 64位的，就选择windows-amd64的工具包；是Linux 32位的就选择linux-386的工具包。可以自己查看下自己的操作系统，然后选择，我这边选择 Mac 版本的下载就可以了。
 
-> Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/dl/)
+> Mac 安装 Go
+
+Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/dl/)
 ```go
 brew install go
 ```
