@@ -147,19 +147,53 @@ Go 语言中的包名一般遵循小写、和所在目录同名的原则。当�
 
 #### 2.2 包的导入
 要想使用一个包，必须先导入它才可以使用，Go 语言提供了 import 关键字来导入一个包，这个关键字告诉 Go 编译器到磁盘的哪里去找要想导入的包，所以导入的包必须是一个全路径的包，也就是包所在的位置。``注意：引用了必须使用，否则会报错。``
+
 ```go
 import "fmt"
 ```
+
 在我们的 Hello World 中我们打印了一段话，引入了 ``fmt`` 包，如果引入多个我们可以如下使用
+
 ```go
 import "fmt"
-import "github.com/sumin/test"
+import "github.com/sumin/test"  // 远程包引入
 
 // 推荐下面的写法
 import (
     "fmt"
     "github.com/sumin/test"
 )
+```
+#### 2.3 包的别名
+在我们开发过程中有可能会出现重复的情况（尽量避免），这个时候我们可以给其中一个设置别名使用，在包的左侧引入，编译器会自动识别该别名。
+
+```go
+package main
+
+import (
+    "fmt"
+    su_fmt "github.com/sumin/fmt"
+)
+
+func main() {
+    fmt.Println()
+    su_fmt.Println()
+}
+```
+
+还有上面那个问题，Go 语言规定导入的包必须引用，这样确实避免了我们引用很多无用的包增加代码量，对于维护简直友好度MAX！但是有的时候我们需要导入一个包执行包里的 init 函数而不想引用它，这个时候可以使用 Go 内置的空白标识符 ``_``，还是拿上面的代码举例
+
+```go
+package main
+
+import (
+    "fmt"
+    _ "github.com/sumin/fmt"
+)
+
+func main() {
+    fmt.Println()
+}
 ```
 
 
