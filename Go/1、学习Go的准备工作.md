@@ -26,11 +26,13 @@ go run main.go
 就会得到我们想要的 hello world! 这个时候我已经迫不及待的想要自己试试了，首先我们需要按照 Go 语言的安装包然后再配置一下 GOPATH 环境变量，其实这里的 GOPATH 环境变量也就是你的 workspace。
 
 #### 1.1 Go 语言安装
+我们根据自己的机器操作系统选择相应的开发工具包，比如你的是Windows 64位的，就选择windows-amd64的工具包；是Linux 32位的就选择linux-386的工具包。可以自己查看下自己的操作系统，然后选择，我这边选择 Mac 版本的下载就可以了。
+
 Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/dl/)
 ```go
 brew install go
 ```
-Mac 会默认给你配置好 GOPATH，如果不喜欢可以自己修改，然后终端输入 
+Mac 会默认给你配置好 GOPATH，如果不喜欢可以自己修改，我的目录是 `` /Users/sumin/workspace/dev/golang ``, 然后终端输入 
 ```go
 go version
 ```
