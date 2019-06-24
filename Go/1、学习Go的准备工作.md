@@ -28,7 +28,7 @@ go run main.go
 #### 1.1 Go 语言安装
 我们根据自己的机器操作系统选择相应的开发工具包，比如你的是Windows 64位的，就选择windows-amd64的工具包；是Linux 32位的就选择linux-386的工具包。可以自己查看下自己的操作系统，然后选择，我这边选择 Mac 版本的下载就可以了。
 
-Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/dl/)
+> 1.1.1 Mac 下安装可以直接用 homebrew 或者 [官网下载](https://golang.org/dl/)
 ```go
 brew install go
 ```
@@ -57,6 +57,8 @@ go version go1.11.1 darwin/amd64
 + src存放的是我们的go源代码，不同工程项目的代码以包名区分
 
 以上是针对 Mac 的环境安装教程，Linux 和 Mac 都是基于 Unix ，命令这一块基本差不多，不过 Linux 更 geek 一些，更偏向于命令行操作，比如下载下来的压缩包需要手动解压，Linux 中环境变量的配置和 Mac 稍有不同，Linux 下又两个文件可以配置，其中 /etc/profile 是针对所有用户都有效的；$HOME/.profile 是针对当前用户有效的，可以根据自己的情况选择。
+
+> Windows 安装 Go
 
 #### 1.2 Go 命令
 首先我们看一下 Go 有哪些命令
