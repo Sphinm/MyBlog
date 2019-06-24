@@ -81,6 +81,19 @@ go version go1.11.2 windows/amd64
 + pkg 文件夹是存在go编译生成的文件
 + src存放的是我们的go源代码，不同工程项目的代码以包名区分
 
+
+当我们在终端输入 `` go env `` 查看编译环境:
+
+![image.png](https://upload-images.jianshu.io/upload_images/1394028-5cdf1edea3a6259f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+其中有几个重要的参数需要我们注意：
+
++ GOOS ：目标操作系统，当前我的系统是 amd64 位，这个值根据你的操作系统决定
++ GOBIN : 存放可执行文件的目录的绝对路径
++ GOEXE ： 当前系统可执行文件的后缀
++ GOPATH ： 工作区目录的绝对路径，就是我刚刚设置的工作路径
++ GOROOT ： Go语言的安装目录的绝对路径
+
 #### 1.2 Go 命令
 接下来我们看一下 Go 有哪些命令
 
@@ -91,7 +104,6 @@ go version go1.11.2 windows/amd64
 go build     用于编译代码
 go run       并运行 Go 程序
 go doc       查看 Go 文档，但是需要安装相关插件
-go env       查看当前 Go 的环境变量
 go version   查看 Go 当前的版本
 go clean     移除当前源码包和关联源码包里面编译生成的文件
 go fmt       格式化 Go 文件，gofmt -w -l src 可以格式化整个项目
@@ -99,6 +111,8 @@ go get       获取远程包，该命令内部执行了两步，第一步是下�
 go install   生成可执行文件
 ...
 ```
+
+详细命令可参考官方文档
 
 #### 1.3 Go Package
 当我们只有一个项目的时候我们可以直接把文件写在 src 目录下，如果我们有多个项目同时存在，我们就要通过包组织我们的代码了，官网是推荐使用你个人的 github.com，这样就不会有重复了。
