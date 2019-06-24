@@ -46,7 +46,7 @@ go version
 ```go
 go version go1.11.1 darwin/amd64
 ```
-接下来设置设置我们的 GOPATH，这里我新建了一个文件夹存放，然后里面新建了如下文件夹
+接下来设置设置我们 GOPATH 下的 src 文件夹下新建如下文件夹
 ```
 .
 ├── bin
