@@ -56,10 +56,10 @@ go version go1.11.1 darwin/amd64
 
 简单的过一下，我们常用的一般也就几条，如
 ```go
-go build   用于编译代码
-go run     并运行 Go 程序
-go doc     查看 Go 文档，但是需要安装相关插件
-go env     查看当前 Go 的环境变量
+go build     用于编译代码
+go run       并运行 Go 程序
+go doc       查看 Go 文档，但是需要安装相关插件
+go env       查看当前 Go 的环境变量
 go version   查看 Go 当前的版本
 go clean     移除当前源码包和关联源码包里面编译生成的文件
 go fmt       格式化 Go 文件，gofmt -w -l src 可以格式化整个项目
