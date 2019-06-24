@@ -48,22 +48,30 @@ go version
 ```go
 go version go1.11.1 darwin/amd64
 ```
+
+以上是针对 Mac 的环境安装教程，Linux 和 Mac 都是基于 Unix ，命令这一块基本差不多，不过 Linux 更 geek 一些，更偏向于命令行操作，比如下载下来的压缩包需要手动解压，Linux 中环境变量的配置和 Mac 稍有不同，Linux 下又两个文件可以配置，其中 /etc/profile 是针对所有用户都有效的；$HOME/.profile 是针对当前用户有效的，可以根据自己的情况选择。
+
+> Windows 安装 Go
+
+首先还是从官网下载相应系统的包，解压到自己选的目录下，我的是 `` F:\Go\ ``， 然后开始配置环境变量，如图所示
+![image.png](https://upload-images.jianshu.io/upload_images/1394028-27ef30a046fd2c71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+在系统变量中新建 GOROOT，变量值是我们刚刚安装的路径；
+修改PATH系统变量，在变量值最后添加 ``%GOROOT%\bin`` 路径;
+最后配置工作目录 GOPATH，这是我们存放源码的地方，如图是我选择的路径，这个随个人喜好。
+
 接下来设置设置我们 GOPATH 下的 src 文件夹下新建如下文件夹
 ```
 ├── bin
 ├── pkg
 └── src
 ```
-+ bin 文件夹存放 go install 生成的可执行文件，当我们把 GOPATH/bin 加入到 PATH 后，我们可以再终端的任意位置直接执行 go 文件了
++ bin 文件夹存放 go install 生成的可执行文件，`当我们把 GOPATH/bin 加入到 PATH 后，我们可以再终端的任意位置直接执行 go 文件了`
 + pkg 文件夹是存在go编译生成的文件
 + src存放的是我们的go源代码，不同工程项目的代码以包名区分
 
-以上是针对 Mac 的环境安装教程，Linux 和 Mac 都是基于 Unix ，命令这一块基本差不多，不过 Linux 更 geek 一些，更偏向于命令行操作，比如下载下来的压缩包需要手动解压，Linux 中环境变量的配置和 Mac 稍有不同，Linux 下又两个文件可以配置，其中 /etc/profile 是针对所有用户都有效的；$HOME/.profile 是针对当前用户有效的，可以根据自己的情况选择。
-
-> Windows 安装 Go
-
 #### 1.2 Go 命令
-首先我们看一下 Go 有哪些命令
+接下来我们看一下 Go 有哪些命令
 
 ![Go 命令.png](https://upload-images.jianshu.io/upload_images/1394028-bf10b393bfd80ea9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640)
 
