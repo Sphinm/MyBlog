@@ -61,6 +61,16 @@ go version go1.11.1 darwin/amd64
 修改PATH系统变量，在变量值最后添加 ``%GOROOT%\bin`` 路径;
 最后配置工作目录 GOPATH，这是我们存放源码的地方，如图是我选择的路径，这个随个人喜好。
 
+ 同样终端输入 
+```go
+go version
+```
+
+输出对应的版本号表示安装成功
+```go
+go version go1.11.2 windows/amd64
+```
+
 接下来设置设置我们 GOPATH 下的 src 文件夹下新建如下文件夹
 ```
 ├── bin
