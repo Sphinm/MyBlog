@@ -126,7 +126,7 @@ Go 语言内置了一个特殊的关键字 iota，这个关键字用来声明enu
 // 只要第一个声明了 iota，后续的变量会自动累加
 // iota 在同一行值相同
 const (
-	a       = iota              //a=0
+	a       = iota             //a=0
 	b       = "bbb"
 	c       = iota             //c=2
 	d, e, f = iota, iota, iota //d=3,e=3,f=3
