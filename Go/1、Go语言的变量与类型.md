@@ -123,7 +123,7 @@ func main() {
 // invalid operation: a + b (mismatched types int and int8)
 ```
 
-另外，Go 的字符串其实可以理解为字节串，由于 Go 采用 UTF-8 编码，一个英文占一个字节，一个中文占3个字节，所以无法直观的定位某个字符，从而引申出字节型 byte 和字符型 rune，这个后续再展开讨论。
+另外，Go 的字符串可以理解为字节串，由于 Go 采用 UTF-8 编码，一个英文占一个字节，一个中文占3个字节，所以无法直观的定位某个字符，从而引申出字节型 byte 和字符型 rune，这个后续再展开讨论。
 
 
 ### 类型零值
@@ -132,6 +132,17 @@ func main() {
 值类型： 0
 布尔型： false
 字符串: ""
+```
+
+### Go 关键字
+这里实名表演一下 Go 的关键字比 Java等其他语言少太多了~ 不用记住，混个眼熟就行
+
+```go
+break    default      func    interface    select
+case     defer        go      map          struct
+chan     else         goto    package      switch
+const    fallthrough  if      range        type
+continue for          import  return       var
 ```
 
 ### iota枚举
@@ -148,3 +159,6 @@ const (
 )
 
 ```
+
+### 本章小结
+这一节主要是讲了 Go 语言中三种变量以及变量的不同定义方式；接下来了解了 Go 语言的类型系统，除了常见的基本类型还简单介绍了一些扩展类型以及类型的零值等，这里先混个眼熟，后面我们用得上的时候再去研究；
