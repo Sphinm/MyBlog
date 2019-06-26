@@ -109,7 +109,7 @@ Go 的字符串其实可以理解为字节串，由于 Go 采用 UTF-8 编码，
 引用类型：slice / map / chan
 这三者是需要通过 make 来创建才能使用
 
-其他：array、struct、func、interface
+其他：array、struct、func、interface、error
 ```
 
 ### 类型零值
@@ -118,4 +118,19 @@ Go 的字符串其实可以理解为字节串，由于 Go 采用 UTF-8 编码，
 值类型： 0
 布尔型： false
 字符串: ""
+```
+
+### iota枚举
+Go 语言内置了一个特殊的关键字 iota，这个关键字用来声明enum的时候采用，它默认开始值是0，后续每增加一行加1，下面看下代码实现
+```go
+// 只要第一个声明了 iota，后续的变量会自动累加
+// iota 在同一行值相同
+const (
+	a       = iota              //a=0
+	b       = "bbb"
+	c       = iota             //c=2
+	d, e, f = iota, iota, iota //d=3,e=3,f=3
+	g       = iota             //g = 4
+)
+
 ```
