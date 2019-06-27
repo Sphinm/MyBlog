@@ -98,12 +98,71 @@ switch a {
     default:
         fmt.Println("default")
 }
-// a <= 6
-// a <= 7
-// a <= 8
-// default
+// 打印结果
+a <= 6
+a <= 7
+a <= 8
+default
 ```
+
+### for
+在 Go 语言中只有一种循环语句会不会不方便呀？其实用了之后发现还好，Go 语言虽然没有提供 while 等语句，不过都可以通过 for 循环的形式来模拟。
+
+```go
+// 标准 for 循环
+for i := 0; i < 10; i++ {
+    fmt.Println("i = ", i)
+}
+```
+
+```go
+// while 循环
+for true {
+    fmt.Println("while循环")
+}
+```
+
+```go
+//  无限循环
+for {
+    fmt.Println("无限循环")
+}
  
+```
+
+以上是 for 循环的三种不同形式，for 循环配合 range 关键字通常用于遍历，我们通过下面一个栗子看一下。
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    var s = []int{1,2,3,4,5}
+	for i := 0; i < len(s); i++ {
+		fmt.Println(i, s[i])
+	}
+	fmt.Println("----------")
+	for index, value := range s {
+		fmt.Println(index, value)
+	}
+}
+// 打印结果
+    0 1
+    1 2
+    2 3
+    3 4
+    4 5
+    ----------
+    0 1
+    1 2
+    2 3
+    3 4
+    4 5
+```
+
+通过这两种形式我们都可以很方便的遍历数据，得到我们想要的结果
+
 ### 导航
 + 上一节：[Go语言的变量与类型](./1、Go语言的变量与类型.md)
 + 下一节：[Go语言的变量与类型](./1、Go语言的变量与类型.md)
