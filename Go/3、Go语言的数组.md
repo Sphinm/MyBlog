@@ -57,18 +57,18 @@ package main
 import "fmt"
 
 func main() {
-    var s = [5]int{1,2,3,4,5}
+	var s = [5]int{1, 2, 3, 4, 5}
 	for i := 0; i < len(s); i++ {
 		fmt.Println(i, s[i])
 	}
 	fmt.Println("----------")
 	for index, value := range s {
 		fmt.Println(index, value)
-    }
-    // 如果不想要第二个值 可以通过 _ 代替
-    // for index, _ := range s {
+	}
+	// 如果不想要第二个值 可以通过 _ 代替
+	// for index, _ := range s {
 	// 	fmt.Println(index)
-    // }
+	// }
 }
 // 打印结果
 0 1
