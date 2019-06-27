@@ -9,7 +9,7 @@ package main
 import (
     "fmt"
     "math/rand"
-	"time"
+    "time"
 )
 
 func main() {
@@ -18,11 +18,11 @@ func main() {
 	a := rand1.Intn(10)
 	fmt.Println("a =", a)
 	if b := 4; a > b {
-		fmt.Println("a > b")
+	    fmt.Println("a > b")
 	} else if a < b {
-		fmt.Println("a < b")
+	    fmt.Println("a < b")
 	} else {
-		fmt.Println("a = b")
+	    fmt.Println("a = b")
     }
     fmt.Println("b=", b) // 编辑器会报错
 }
