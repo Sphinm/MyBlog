@@ -48,15 +48,15 @@ func main() {
 // 值匹配
 func prize1(score int) string {
     switch score / 10 {
-    case 0, 1, 2, 3, 4, 5:
-        return "差"
-    case 6, 7:
-        return "及格"
-    case 8:
-        return "良"
-    default:
-        return "优"
-    }
+        case 0, 1, 2, 3, 4, 5:
+            return "差"
+        case 6, 7:
+            return "及格"
+        case 8:
+            return "良"
+        default:
+            return "优"
+        }
 }
 
 // 表达式匹配
