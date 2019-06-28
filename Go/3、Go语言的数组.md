@@ -46,11 +46,11 @@ package main
 import "fmt"
 
 func main() {
-    i :=new([3]int)           // 分配内存
-    *i = [...]int{1, 2, 3}	  // 初始化	
+    i := new([3]int)            // 分配内存
+    *i = [...]int{1, 2, 3}      // 初始化	
     fmt.Println(*i)
-    // [1 2 3]
 }
+// [1 2 3]
 ```
 
 ## 数组赋值
