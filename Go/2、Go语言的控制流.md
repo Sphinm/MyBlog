@@ -178,12 +178,72 @@ LABEL:
             }
         }
     }
-    fmt.Println("跳出多层循环")
+    fmt.Println("break 跳出多层循环")
 }
-
+// 使用 break 配合标签可以跳出多层循环
 ```
 
-到这里 Go 语言的控制流语句基本就讲完了，接下来我们来学一学 Go 语言的数组吧~
+如果这里 break 改成 continue，结果会不一样
+
+```go
+
+func main() {
+LABEL:
+    for {
+        for i := 0; i < 10; i++ {
+            if i > 4 {
+                continue LABEL
+            }
+        }
+    }
+    fmt.Println("continue 跳出多层循环")
+}
+// 这里使用 continue 配合标签并不会跳出多层循环，如果想要跳出我们
+// 需要改一下代码结构
+
+func main() {
+LABEL:
+    for i := 0; i < 10; i++ {
+        for {
+            continue LABEL
+        }
+    }
+    fmt.Println("continue 跳出多层循环")
+}
+// 将有限循环放到外面，这样就可以跳出多层了，只要确保最外层是有限循环
+```
+
+尽管不推荐使用 goto，但是这里如果换成 goto 呢，是否可以跳出多层循环？
+```go
+
+func main() {
+LABEL:
+    for {
+        for i := 0; i < 10; i++ {
+            if i > 4 {
+                goto LABEL
+            }
+        }
+    }
+    fmt.Println("goto 跳出多层循环")
+}
+// 我们发现这里也不可以跳出多层循环，稍微改动一下代码结构就可以
+
+func main() {
+    for {
+        for i := 0; i < 10; i++ {
+            if i > 4 {
+                goto LABEL
+            }
+        }
+    }
+LABEL:
+    fmt.Println("goto 跳出多层循环")
+}
+```
+
+## 本章小结
+到这里 Go 语言的控制流语句基本就讲完了，在 Go 语言中控制流也相对简单，没有其他语言那么多种类，减少了语法学习成本，不过简单归简单，也要注意它的不同之处。接下来我们来学一学 Go 语言的数组吧~
 
 ## 导航
 + 上一节：[Go语言的变量与类型](./1、Go语言的变量与类型.md)
