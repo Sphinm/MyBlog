@@ -28,8 +28,12 @@ fmt.Println(arr, len(arr), cap(arr))
 // 首先声明一个长度为 10 的数组
 var arr = [10]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 // arr1 从底层第三个数据开始，到第五个结束
-var arr1 = arr[2, 5]      // [3, 4, 5] 
-var arr1 = arr[2, 5]
+var arr1 = arr[2:5]      // [3 4 5] 
+var arr2 = arr[4:8]      // [5 6 7 8]
+
+// 我们从 arr2 获取 slice
+slice := arr2[1:3]       // [6 7]
 ```
+这里需要注意
 
 在 Go 语言中切片也叫 slice，它是一个引用类型，指向一个底层数组。学过 Java 的同学可以把它看作 ArrayList，ArrayList 的内部实现也是一个数组。当数组容量不够需要扩容时，就会换新的数组，还需要将老数组的内容拷贝到新数组。ArrayList 内部有两个非常重要的属性 capacity 和 length。capacity 表示内部数组的总长度，length 表示当前已经使用的数组的长度。length 永远不能超过 capacity。
