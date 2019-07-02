@@ -14,7 +14,7 @@
 [0 0 0 0 0 0 0 0]
 ```
 
-第二种方式是通过直接赋值的方式创建一个满容切片，可以通过内置函数 `len()` 获取切片长度，`cap()` 获取底层数组容量
+使用 make 函数创建的切片内容是「零值切片」，也就是内部数组的元素都是零值，第二种方式是通过直接赋值的方式创建一个满容切片，可以通过内置函数 `len()` 获取切片长度，`cap()` 获取底层数组容量
 ```go
 var arr []int = []int{1, 2, 3, 4, 5} 
 fmt.Println(arr, len(arr), cap(arr)) 
@@ -53,3 +53,22 @@ slice1 [6 7] 2 5        // 容量 5 是 6 到 10 的区间
 图中切片变量包含 **三个域**，分别是 ``指向底层数组的指针``，``切片长度``， ``切片的容量`` 三个概念。
 
 > 在 Go 语言中切片也叫 slice，它是一个引用类型，指向一个底层数组。学过 Java 的同学可以把它看作 ArrayList，ArrayList 的内部实现也是一个数组。当数组容量不够需要扩容时，就会换新的数组，还需要将老数组的内容拷贝到新数组。ArrayList 内部有两个非常重要的属性 capacity 和 length。capacity 表示内部数组的总长度，length 表示当前已经使用的数组的长度。length 永远不能超过 capacity。
+
+## 空切片和 nil切片
+在切片这一节中，有两种特殊情况，空切片和 nil 切片，不同于 make 创建的零值切片，我们通过代码看一下
+```go
+func main() {
+    var s1 []int                   // nil 切片
+    var s2 []int = []int{}         // 空切片
+    var s3 []int = make([]int, 0)  // 空切片
+    var s4 []int = make([]int, 3)  // 零值切片
+    fmt.Println(s1, s2, s3, s4)
+    fmt.Println(len(s1), len(s2), len(s3), len(s4))
+    fmt.Println(cap(s1), cap(s2), cap(s3), cap(s4))
+}
+
+-----------
+[] [] [] [0 0 0]
+0 0 0 3
+0 0 0 3
+```
