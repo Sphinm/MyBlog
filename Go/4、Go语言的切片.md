@@ -46,7 +46,7 @@ arr2 [5 6 7 8] 4 6      // 容量 6 是 5 到 10 的区间
 slice1 [6 7] 2 5        // 容量 5 是 6 到 10 的区间
 ```
 
-它们共享底层数组
+此处它们共享底层数组，值得注意的是，切片支持 append 操作可以将新的内容追加到底层数组，也就是填充下面的灰色格子。如果格子满了，切片就需要扩容，底层的数组就会更换，这个我们下面再说。
 
 ![切片原理.png](https://mmbiz.qpic.cn/mmbiz_png/bGribGtYC3mJtc8O34mFE3jzWZ8xtVTeyathYpKrFkPEacEhouJ9xhNqMbsWH5uWOyEZlC2D4n8SIpMXwuq8FwA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
