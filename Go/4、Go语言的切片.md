@@ -52,4 +52,4 @@ slice1 [6 7] 2 5        // 容量 5 是 6 到 10 的区间
 
 图中切片变量包含 **三个域**，分别是 ``指向底层数组的指针``，``切片长度``， ``切片的容量`` 三个概念。
 
-在 Go 语言中切片也叫 slice，它是一个引用类型，指向一个底层数组。学过 Java 的同学可以把它看作 ArrayList，ArrayList 的内部实现也是一个数组。当数组容量不够需要扩容时，就会换新的数组，还需要将老数组的内容拷贝到新数组。ArrayList 内部有两个非常重要的属性 capacity 和 length。capacity 表示内部数组的总长度，length 表示当前已经使用的数组的长度。length 永远不能超过 capacity。
+> 在 Go 语言中切片也叫 slice，它是一个引用类型，指向一个底层数组。学过 Java 的同学可以把它看作 ArrayList，ArrayList 的内部实现也是一个数组。当数组容量不够需要扩容时，就会换新的数组，还需要将老数组的内容拷贝到新数组。ArrayList 内部有两个非常重要的属性 capacity 和 length。capacity 表示内部数组的总长度，length 表示当前已经使用的数组的长度。length 永远不能超过 capacity。
