@@ -1,5 +1,6 @@
 >偶尔有一天觉得公司的 H5 项目在 build 的时候特别慢，看了下时间大约在 60 - 80s，而且由于需要在微信中看真机效果，所以需要经常 build，于是去网上找找资料如何缩短这个加载时间。以下是我在优化加载过程中遇到的一些坑及优化方案。 
 
+
 ![vue-build.png](https://upload-images.jianshu.io/upload_images/1394028-7b8f238b31e95e6b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![网络请求.png](https://upload-images.jianshu.io/upload_images/1394028-07c182d14e26c6ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -53,6 +54,7 @@ if (config.build.productionGzip) {
 }
 ```
 ![开启双端gzip后效果1.png](https://upload-images.jianshu.io/upload_images/1394028-c1c1fb7bc3370b9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ![开启双端gzip后效果2.png](https://upload-images.jianshu.io/upload_images/1394028-ec7efb94c57b446b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 由图中可以看出，这里配置完后首屏加载速度提升是很明显的，``vendor 由 176kb 压缩成61kb，app.css 由 1.22M 压缩成186kb``，接下来我们可以看看如何通过配置 webpack 优化打包速度。
@@ -152,6 +154,7 @@ module.exports = {
 </body>
 ``` 
 接下来我们执行 ``yarn build`` 发现 ``vendor`` 文件由原来的 ``1.57M`` 变成了 `931KB`，看起来效果不错
+
 ![步骤一.png](https://upload-images.jianshu.io/upload_images/1394028-22441a0e69d8415c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 这里我们只是预编译了三个文件，当我们把其他的第三方库打包后看看效果如何
