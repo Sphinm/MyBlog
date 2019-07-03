@@ -92,7 +92,7 @@ const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin');
 
 
 ### 2、减少打包文件数量
-随着项目的迭代，引入的第三方库也会越来越多，每次 build 都会对所有文件进行打包，耗时也会越来越久，不利于平时开发。这个时候我们可以通过减少一些不经常更新的包来单独打包，我们有两种方式，第一种是通过 CDN 引入包然后配合 externals 配置的方式也可以，抽离第三方包，只打包业务代码。第二种方式就是引入 DLL 文件，dllplugin 是 webpack DllPlugin、webpack 的简称，思路也是讲一些第三方包抽离出来单独打包，后面就不需要重新打包了。
+随着项目的迭代，引入的第三方库也会越来越多，每次 build 都会对所有文件进行打包，耗时也会越来越久，不利于平时开发。这个时候我们可以通过减少一些不经常更新的包来单独打包，我们有两种方式，第一种是通过 CDN 引入包然后配合 externals 配置的方式也可以，抽离第三方包，只打包业务代码。第二种方式就是引入 DLL 文件，dllplugin 是 webpack DllPlugin、webpack 的简称，思路也是将一些第三方包抽离出来单独打包，后面就不需要重新打包了。
 
 使用方法：
 + 1、在 build 文件夹下新建 `webpack.dll.conf.js`，内容如下：
@@ -138,7 +138,7 @@ module.exports = {
     ...
     plugins: [
         new webpack.DllReferencePlugin({
-            manifest: require('../dist/vendor-manifest.json')
+            manifest: require('../dist/dll/vendor-manifest.json')
         })
     ]
     ...
