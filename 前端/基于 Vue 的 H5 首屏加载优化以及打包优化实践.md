@@ -158,12 +158,12 @@ module.exports = {
 
 ![步骤二.png](https://upload-images.jianshu.io/upload_images/1394028-13de483ca5c8ac6f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-vendor 文件现在只有 270 kb 了，缩小了不知道多少倍~ 到这里，dll 的配置基本完事了，我们还可以把 `index.html` 中的手动引入的脚步改成自动导入。
+vendor 文件现在只有 270 kb 了，缩小了不知道多少倍~ 到这里，dll 的配置基本完事了，我们还可以把 `index.html` 中的手动引入的脚本改成自动导入。
 ```js
 // webpack.base.conf.js
 new webpack.DllReferencePlugin({
     context: path.resolve(__dirname, '..'),
-    manifest: require('../dist/vendor-manifest.json')
+    manifest: require('../dist/dll/vendor-manifest.json')
 }),
 // 在htmlwebpack后插入一个 AddAssetHtmlPlugin 插件，用于将 vendor 插入打包后的页面
 new AddAssetHtmlPlugin({
