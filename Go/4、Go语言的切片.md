@@ -219,3 +219,15 @@ func modify(slice []int) {
 [1 10 3 4 5]
 ```
 我们发现传递到函数的切片地址不一样，说明切片在函数直接传递是复制了一个切片副本；只是当我们改变其中一个值得时候，才会改变原切片，说明共用一个底层数组。
+
+
+## 本章小结
+切片的内容是 Go 语言基础中很重要的一个内容，总算是啃完了，有的东西没讲，比如二维切片，在 Go 文档中有一处切片练习就是用到的二维切片，大家可以尝试一下画出有意思的图像出来。下一节开始 Go 语音的 Map，大概可以理解为 HashMap
+
+PS：[切片练习](https://tour.go-zh.org/moretypes/18)
+
+![image.png](https://upload-images.jianshu.io/upload_images/1394028-3213f262d0d0fa9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+## 导航
++ 上一节：[Go语言的数组](./3、Go语言的数组.md)
++ 下一节：[Go语言的切片](./5、Go语言的切片.md)

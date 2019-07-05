@@ -136,6 +136,7 @@ easyArray := [2][4]int{
 ![img.png](https://raw.githubusercontent.com/astaxie/build-web-application-with-golang/master/zh/images/2.2.array.png)
 
 
+## 本章小结
 这一节主要是讲了 Go 语言的数组，作为一个内置的数据结构，它是我们学习后面切片的基石，了解了数组的基本使用后我们接下来学习 Go 语言中最重要也是特有的数据结构——切片。
 
 
