@@ -105,6 +105,29 @@ func main() {
 第一次读取键值 `test` 时候 map 中并没有，所以返回对应的零值，第二个参数为 `false`，
 当我们插入了 `test` 时，就可以正确返回数据了。
 
+## Map的遍历
+还是以刚刚的例子，通过 `for range` 来遍历一下
+```go
+package main
+
+import "fmt"
+
+func main() {
+    m := map[string]int{
+        "xiaoming": 18,
+        "xiaohong": 16,
+        "tubashu":  10,
+    }
+    for key, value := range m {
+        fmt.Println(key, value)
+    }
+}
+-----------
+xiaoming 18
+xiaohong 16
+tubashu 10
+```
+
 
 ## 本章小结
 Go 语言中 map 是一种常见的数据结构，我们通过键值可以快速的索引到某个值；上面我们介绍了 map 的定义和初始化以及添加删除记录的操作，其实忘了说 `无序` 了，这个大家可以自己尝试一下，每次遍历一个 map 输出得到的结果都不一定相同的哦~
