@@ -58,3 +58,50 @@ func main() {
 map[gogo:12 tubashu:10 xiaohong:16 xiaoming:18]
 map[gogo:12 tubashu:10 xiaoming:18]
 ```
+这里很简单，继续往下考虑，如果我们插入一条同键名的记录呢？或者删除一条不存在的语句又会怎么样？接着往下看
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    m := map[string]int{
+        "xiaoming": 18,
+        "xiaohong": 16,
+        "tubashu":  10,
+    }
+    m["tubashu"] = 20       // 追加一条同键名记录会覆盖原有的
+    fmt.Println(m)
+}
+----------
+map[tubashu:12 xiaohong:16 xiaoming:18]
+```
+通过代码我们发现追加一条同键名记录会覆盖原有的记录，而读取一条不存在的记录什么反应都没有？！
+这个时候我们可以通过标识位 `ok` 来确定
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    m := map[string]int{
+        "xiaoming": 18,
+        "xiaohong": 16,
+        "tubashu":  10,
+    }
+    test, ok := m["test"]
+    fmt.Println(test, ok)
+
+    m["test"] = 100
+    test, ok = m["test"]
+    fmt.Println(test, ok)
+}
+----------
+0 false
+100 true
+```
+第一次读取键值 `test` 时候 map 中并没有，所以返回对应的零值，第二个参数为 `false`，
+当我们插入了 `test` 时，就可以正确返回数据了。
+
