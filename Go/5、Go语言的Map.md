@@ -1,7 +1,7 @@
 上一节中我们介绍了切片的相关内容，这一节我们看看另一种数据结构——Map，其实这个和 Java 中的 HashMap 类似，都是基于键值对存储的无序集合，有相关概念学习起来就很简单了。
 
 ## Map的定义和初始化
-Map 的定义格式是 `map[keyType]valueType`，表示键是一个 `keyType` 类型，值是一个 `valueType` 类型。和切片一样，Map 也是引用类型，支持 make 创建和字面量创建。
+Map 的定义格式是 `map[keyType]valueType`，表示键是一个 `keyType` 类型，值是一个 `valueType` 类型。和切片一样，Map 也是引用类型，支持 make 创建和字面量创建。
 ```go
 package main
 
