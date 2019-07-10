@@ -2,7 +2,9 @@ Go 语言中的结构体是一种类似于 Java 中类的概念，我们可以�
 
 ![来源-码洞](https://mmbiz.qpic.cn/mmbiz_png/bGribGtYC3mIF98WxZkyOgbtbkiblaQgy6v1DrribArRBAoETvdCiaKVtO0ovyxJfaNDqTRPSJmT1bP0KfgGvgTiciaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-## 结构体的定义
+
+## 结构体的定义与使用
+
 我们声明一个 `Person`
 ```go
 type Person struct {
@@ -12,10 +14,8 @@ type Person struct {
 --------------
 这里我们通过 `type XXX struct` 声明一个结构体
 结构体内定义两个字段，分别是名称和类型
-
 ```
 
-## 结构体的创建与使用
 上面我们定义了一个结构体类型，但是并不能直接用，需要我们给结构体初始化
 ```go
 package main
