@@ -1,5 +1,6 @@
 Go 语言中的结构体是一种类似于 Java 中类的概念，我们可以在结构体里面声明一些属性和字段。结构体在 Go 中有着非常重要的位置，它可以是基础类型、切片、map、结构体等类型的数据构成的集合。由于结构体是 **值类型**，所以可以使用 new 函数来创建。
 
+
 ![来源-码洞](https://mmbiz.qpic.cn/mmbiz_png/bGribGtYC3mIF98WxZkyOgbtbkiblaQgy6v1DrribArRBAoETvdCiaKVtO0ovyxJfaNDqTRPSJmT1bP0KfgGvgTiciaw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 
@@ -198,3 +199,11 @@ func (p person) getName() string{
 }
 ```
 在方法（注意这里是方法不是函数）getName 和 func 之间有一个变量和变量类型，这个类型就是 ``方法接收者``。
+
+
+## 本章小结
+本章主要介绍了结构体的相关内容，如定义和初始化结构体，结构体如何通过组合的方式实现继承，匿名结构体和匿名字段，结构体在函数之间的传递，特别注意结构体不论是赋值还是拷贝，都是值传递，不会影响原有结构体，如需改变原有结构体则需要使用指针。
+
+## 导航
++ 上一节：[Go语言的Map](./5、Go语言的Map.md)
++ 下一节：[Go语言的函数和方法](./7、Go语言的函数和方法.md)
