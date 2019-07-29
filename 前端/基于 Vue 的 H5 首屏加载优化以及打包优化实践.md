@@ -190,8 +190,6 @@ new AddAssetHtmlPlugin({
 
 我们发现 css 文件也响应缩小了一些，最终效果如下图所示：
 
-![end.png](https://upload-images.jianshu.io/upload_images/1394028-47635e62388b3bb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
 ![end.png](https://upload-images.jianshu.io/upload_images/1394028-d8488ba7fd73f26e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
