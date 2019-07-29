@@ -106,7 +106,7 @@ module.exports = {
     entry: {
         //这地方写你想抽离的包，可以参考你的package.json文件下的 dependencies
         vendor: [
-            'vue/dist/vue.common.js',
+            'vue',
             'vue-router',
             'vuex'
         ]
@@ -192,10 +192,11 @@ new AddAssetHtmlPlugin({
 
 ![end.png](https://upload-images.jianshu.io/upload_images/1394028-47635e62388b3bb8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-![end.png](https://upload-images.jianshu.io/upload_images/1394028-b4556e0545d2c28b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![end.png](https://upload-images.jianshu.io/upload_images/1394028-d8488ba7fd73f26e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 
 
 ## 总结
-从首次打包花了 80s 到现在 47s，优化了接近一半的时间，在研究 webpack 时也遇到不少问题，基本都是自己 Google ，不断的翻阅文档和相关 issues。有的插件在 webpack3.x 和 webpack4.x 不尽相同，没有做向下兼容，需要不断地踩坑，比如这次的 `add-asset-html-webpack-plugin` 在  webpack3.x 下只能使用 2.x 版本，以及昨晚的 `compression-webpack-plugin` 插件在 webpack3.x 下只能使用 1.x 版本，这些东西其实劳心劳力但是又没有什么用处，真心不建议跟 webpack 较劲。
+从首次打包花了 80s 到现在 45s，优化了接近一半的时间，在研究 webpack 时也遇到不少问题，基本都是自己 Google ，不断的翻阅文档和相关 issues。有的插件在 webpack3.x 和 webpack4.x 不尽相同，没有做向下兼容，需要不断地踩坑，比如这次的 `add-asset-html-webpack-plugin` 在  webpack3.x 下只能使用 2.x 版本，以及昨晚的 `compression-webpack-plugin` 插件在 webpack3.x 下只能使用 1.x 版本，这些东西其实劳心劳力但是又没有什么用处，真心不建议跟 webpack 较劲。
 
 项目优化其实只是一个下策，更重要的是我们平时写代码需要多思考，提升效率和性能。我们写的时候需要注意引入第三方组件以及样式，不是多处用到的组件尽量按需加载，外部样式走 CDN，公用逻辑尽量提出来，不要写完就完事了。就我们目前的商城，移动端组件库就有俩，查看请求时发现有几张图片都是 1.5M（编辑同学上传时没有压缩），首页第一次加载请求有200多个，主要是图片请求，这块如何优化呢？还是能归结到代码层面，精益求精也是自我提升的一部分。
