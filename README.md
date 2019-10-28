@@ -1,6 +1,9 @@
 # [前端学习笔记](#)
 > 个人博客主要在 Issues 中写，暂时不迁移到博客中
 
+### 业务问题
+1. [在 axios 全局阻止重复请求](https://github.com/suminhohu/MyBlog/issues/29)
+
 ## JavaScript
 
 1. [牛客网前端在线编程题](https://github.com/suminhohu/blog_issues/issues/1)
